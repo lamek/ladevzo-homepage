@@ -1,0 +1,275 @@
+/* General Page Container */
+.page-container {
+  padding: 80px 20px; /* More padding at top to clear fixed header if any */
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 100px); /* Adjust for footer height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.page-title {
+  font-size: 3.5em; /* Large, impactful title */
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #007bff, #8A2BE2, #FF69B4); /* Same gradient as LADEVZO title */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-intro {
+  font-size: 1.2em;
+  line-height: 1.7;
+  color: #c0c0c0; /* Lighter grey for intro text */
+  opacity: 0.9;
+}
+
+/* Card Grid for Apps/Projects */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+.app-card {
+  background-color: #2c2c44; /* Slightly lighter dark background for cards */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  position: relative; /* For the banner */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes status/link to bottom */
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.app-card h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.app-card p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #e0e0e0;
+  opacity: 0.85;
+  margin-bottom: 20px; /* Space before link/status */
+  flex-grow: 1; /* Makes paragraph take available space */
+}
+
+.card-link {
+  display: inline-block;
+  background: linear-gradient(45deg, #8A2BE2, #FF69B4);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-top: 15px; /* Space above the link */
+}
+
+.card-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.external-link::after {
+  content: ' \2197'; /* Unicode for northeast arrow */
+  font-size: 0.8em;
+  vertical-align: super;
+}
+
+.card-status {
+  display: block;
+  font-size: 0.9em;
+  color: #999;
+  margin-top: 10px;
+}
+
+/* Under Construction Banner */
+.app-card.under-construction {
+  border: 2px solid #FFC107; /* Yellow border for emphasis */
+  overflow: hidden; /* Ensure banner doesn't go outside */
+}
+
+.app-card.under-construction .banner {
+  position: absolute;
+  top: 15px;
+  right: -50px; /* Adjust to angle it properly */
+  background-color: #FFC107; /* Yellow background */
+  color: #333;
+  padding: 5px 50px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  transform-origin: 100% 0%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific Card Styles */
+.app-card.coming-soon .card-status {
+  color: #FF69B4; /* Pink for coming soon */
+  font-weight: bold;
+}
+
+.app-card.idea-card .card-status {
+  color: #007bff; /* Blue for ideas */
+  font-weight: bold;
+}
+
+
+/* Responsive Adjustments for Pages */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5em;
+  }
+  .page-intro {
+    font-size: 1em;
+  }
+  .page-container {
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2em;
+  }
+  .app-card {
+    padding: 20px;
+  }
+/* Specific styling for the 100 Ideas page link on GooglePhotosAppsPage */
+.idea-card-link {
+  text-decoration: none; /* Remove underline from Link */
+  color: inherit; /* Inherit text color */
+}
+
+/* Ensure the app-card within the link behaves like a card */
+.idea-card-link .app-card {
+  height: 100%; /* Make sure the card takes full height in the grid */
+}
+
+/* Category Navigation for 100 Ideas Page */
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 60px;
+  padding: 10px;
+  background-color: #2c2c44; /* Dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.category-button {
+  /* Inherits from cta-button, adjust as needed */
+  background: linear-gradient(45deg, #007bff, #8A2BE2); /* More subtle gradient for buttons */
+  font-size: 0.95em;
+  padding: 10px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.category-button:hover {
+  background: linear-gradient(45deg, #8A2BE2, #FF69B4); /* Highlight on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ideas Category Sections */
+.ideas-category-section {
+  width: 100%; /* Take full width of parent container */
+  margin-bottom: 80px; /* Space between categories */
+  text-align: center;
+}
+
+.category-heading {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: #FF69B4; /* Pink for category headings */
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 105, 180, 0.3);
+  padding-bottom: 10px;
+}
+
+.category-description {
+  font-size: 1.1em;
+  color: #c0c0c0;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Individual Idea Card - inherits from app-card, but can be fine-tuned */
+.idea-card {
+  min-height: 200px; /* Give them a minimum height for consistency */
+  display: flex;
+  flex-direction: column;
+}
+
+.idea-card h3 {
+  font-size: 1.3em;
+  color: #007bff; /* Blue for idea titles */
+  margin-bottom: 10px;
+}
+
+.idea-card p {
+  font-size: 0.95em;
+  color: #e0e0e0;
+  opacity: 0.85;
+  flex-grow: 1; /* Make description take available space */
+}
+
+/* Responsive adjustments for 100 Ideas Page */
+@media (max-width: 768px) {
+  .category-heading {
+    font-size: 2em;
+  }
+  .category-button {
+    font-size: 0.85em;
+    padding: 8px 15px;
+  }
+  .category-nav {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-heading {
+    font-size: 1.6em;
+  }
+  .category-button {
+    width: 100%; /* Stack buttons on very small screens */
+  }
+  .category-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+}
