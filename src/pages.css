@@ -274,3 +274,74 @@
   }
 }
 }
+
+/* Add these new styles to your existing pages.css */
+
+/* Styles for the sub-page navigation bar */
+.sub-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  background-color: #1a1a2e; /* Dark blue, matching your theme */
+  border-bottom: 1px solid #3a3a5e;
+}
+
+.sub-nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sub-nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Container for all sub-page main content */
+.page-main-content {
+  padding: 2rem 1rem;
+  max-width: 800px; /* Constrains width for readability */
+  margin: 0 auto;
+}
+
+/* Specific styles for text-heavy pages like Privacy & Terms */
+.page-content {
+  color: #c0c0c0;
+}
+
+.page-content h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4a4a7e;
+  padding-bottom: 0.5rem;
+}
+
+.page-content h2 {
+  color: #ececec;
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.page-content p, 
+.page-content li {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.page-content a {
+  color: #87CEEB; /* A nice sky blue for links */
+  text-decoration: none;
+}
+
+.page-content a:hover {
+  text-decoration: underline;
+}
+
+.page-content ul {
+  list-style-position: inside;
+  padding-left: 1rem;
+}

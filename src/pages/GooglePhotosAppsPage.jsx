@@ -40,12 +40,12 @@ function GooglePhotosAppsPage() {
         </div>
 
         {/* Card 3: Slideshow */}
-        <div className="app-card coming-soon">
-          <h3>Super Secret Slideshow!</h3>
+        <div className="app-card">
+          <h3>Slideshow</h3>
           <p>
-            Get ready for a visually stunning and dynamic slideshow experience! We're exploring exciting ways to animate your Google Photos memories. Which API are we using? That's a secret for now, but rest assured, it's designed to bring your photo albums to life like never before. Don't you want to know more?
+            A new app to create, share, and view stunning, dynamic slideshows directly from your Google Photos albums. Bring your memories to life with this visually rich experience.
           </p>
-          <span className="card-status">Coming Soon</span>
+          <a href="https://slideshow.ladevzo.com/" target="_blank" rel="noopener noreferrer" className="card-link external-link">Visit Live App</a>
         </div>
 
         {/* Card 4: 100 Ideas - Now a link to a dedicated page */}
