@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // Import the image we just saved
 import errorScreenshot from '../assets/firebase-error.png'; 
-import '../App.css'; 
+import '../App.css';
+import usePageTracking from '../hooks/usePageTracking';
 
 function Post01_GettingStuck() {
+
+  usePageTracking('blog_getting-stuck');
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="page-container">
       
       {/* 1. Header Section */}
       <div className="blog-post-wrapper">
         <header className="blog-header">
+          <div style={{ color: '#4DB6AC', fontFamily: 'monospace', marginBottom: '0.5rem' }}>
+            Dec 20, 2025
+          </div>
           <div className="blog-subtitle">Zero to AI: Episode 1</div>
           <h1 className="blog-title">Getting Stuck Getting Started</h1>
         </header>

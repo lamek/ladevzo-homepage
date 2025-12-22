@@ -345,3 +345,119 @@
   list-style-position: inside;
   padding-left: 1rem;
 }
+
+
+/* =========================================
+   NEW: Builder's Log (List View) & Fixes
+   ========================================= */
+
+/* FIX: High-contrast links for dark mode */
+/* This overrides the default blue which is hard to read */
+.page-content a,
+.blog-content a {
+  color: #4DB6AC; /* Teal/Cyan - pops on dark backgrounds */
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid rgba(77, 182, 172, 0.3); /* Subtle underline */
+}
+
+.page-content a:hover,
+.blog-content a:hover {
+  color: #80CBC4; /* Lighter teal */
+  border-bottom-color: #80CBC4;
+}
+
+/* The Log Container */
+.blog-list-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left; /* Reset alignment */
+}
+
+/* Individual Log Entry */
+.blog-entry {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+  align-items: flex-start;
+}
+
+.blog-date {
+  flex-shrink: 0;
+  width: 120px;
+  font-family: 'Courier New', monospace; /* Tech vibe */
+  color: #888;
+  font-size: 0.9rem;
+  text-align: right;
+  padding-top: 0.4rem; /* Align with title */
+}
+
+.blog-content {
+  flex-grow: 1;
+}
+
+.blog-title {
+  font-size: 1.8rem;
+  margin: 0 0 0.8rem 0;
+  color: #e0e0e0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Title Link specific style */
+.blog-title a {
+  color: #e0e0e0; /* Keep title white/grey */
+  border-bottom: none;
+}
+
+.blog-title a:hover {
+  color: #4DB6AC; /* Teal on hover */
+}
+
+.blog-excerpt {
+  color: #b0b0b0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-shipped {
+  background-color: rgba(77, 182, 172, 0.1);
+  color: #4DB6AC;
+  border: 1px solid rgba(77, 182, 172, 0.3);
+}
+
+.status-wip {
+  background-color: rgba(255, 179, 0, 0.1);
+  color: #FFB300;
+  border: 1px solid rgba(255, 179, 0, 0.3);
+}
+
+/* Mobile Tweak: Stack date on top */
+@media (max-width: 600px) {
+  .blog-entry {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  .blog-date {
+    text-align: left;
+    width: auto;
+    color: #4DB6AC; /* Highlight date on mobile since it's on top */
+  }
+}

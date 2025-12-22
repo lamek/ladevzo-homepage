@@ -3,22 +3,28 @@ import { Link, Routes, Route, Outlet } from 'react-router-dom'; // Import Outlet
 import './App.css';
 import './animations.css';
 import './pages.css'; // Make sure pages.css is imported here
+import usePageTracking from './hooks/usePageTracking';
+import { useLocation } from 'react-router-dom'; // We need this to know the current URL
 
 // Page Components
 import GooglePhotosAppsPage from './pages/GooglePhotosAppsPage.jsx';
-import AIExplorationsPage from './pages/AIExplorationsPage.jsx';
+import BuildersLogPage from './pages/BuildersLogPage.jsx';
 import HundredIdeasPage from './pages/HundredIdeasPage.jsx';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';     // NEW: Import Privacy Policy
 import TermsOfServicePage from './pages/TermsOfServicePage.jsx'; // NEW: Import Terms of Service
 
 //Blog
 import Post01_GettingStuck from './blog/Post01_GettingStuck';
+import Post02_GmailShuffle from './blog/Post02_GmailShuffle';
 
 // Layout Component
 import PageLayout from './components/PageLayout.jsx'; // NEW: Import the layout
 
 // This is the component for the homepage content
 function Homepage() {
+  // Track the homepage explicitly
+  usePageTracking('homepage');
+  
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,7 +47,7 @@ function Homepage() {
         {/* NAV FIX: We will add CSS to make these stack on mobile */}
         <nav className="hero-nav">
           <Link to="/photos-apps" className="cta-button">Use the Apps</Link>
-          <Link to="/ai-explorations" className="cta-button">Read the Builder's Log</Link>
+          <Link to="/builders-log" className="cta-button">Read the Builder's Log</Link>
         </nav>
         
         <div className="scroll-indicator">
@@ -64,7 +70,7 @@ function Homepage() {
             A chronicle of building intelligent systems without breaking the bank. 
             Follow the journey of leveraging Google Cloud's free tier.
           </p>
-          <Link to="/ai-explorations" className="cta-button">Start Reading</Link>
+          <Link to="/builders-log" className="cta-button">Start Reading</Link>
         </section>
         
         {/* Contact section remains the same */}
@@ -92,11 +98,12 @@ function App() {
         */}
         <Route element={<PageLayout />}>
           <Route path="/photos-apps" element={<GooglePhotosAppsPage />} />
-          <Route path="/ai-explorations" element={<AIExplorationsPage />} />
+          <Route path="/builders-log" element={<BuildersLogPage />} />
           <Route path="/100-ideas" element={<HundredIdeasPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
           <Route path="/blog/getting-stuck" element={<Post01_GettingStuck />} />
+          <Route path="/blog/gmail-shuffle" element={<Post02_GmailShuffle />} />
         </Route>
       </Routes>
 

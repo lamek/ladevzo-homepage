@@ -215,3 +215,29 @@
   margin-top: 0.5rem;
   font-style: italic;
 }
+
+/* In src/App.css */
+
+.footer-links a,
+.contact-link {
+  /* OLD: color: #8A2BE2; (Purple) */
+  
+  /* NEW: High Contrast Cyan */
+  color: #4DB6AC; 
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.contact-link:hover {
+  /* Lighter on hover */
+  color: #80CBC4; 
+  text-decoration: underline;
+}
+
+/* Optional: Make the pipe separators | lighter so they don't disappear */
+.footer-links span {
+  color: #666; /* or rgba(255,255,255,0.3) */
+  margin: 0 10px;
+}
