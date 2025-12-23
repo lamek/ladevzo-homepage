@@ -20,7 +20,6 @@ function PageLayout() {
         <Link to="/">Home</Link>
         <Link to="/photos-apps">Photos Apps</Link>
         <Link to="/builders-log">Builder's Log</Link>
-        <Link to="/100-ideas">100 Ideas</Link>
       </nav>
       <main className="page-main-content">
         {/* Outlet renders the matched child route (e.g., PrivacyPolicyPage) */}

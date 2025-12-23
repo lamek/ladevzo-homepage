@@ -60,7 +60,15 @@ function Homepage() {
       <main className="content-sections">
         <section className="section">
           <h2>Google Photos Tools</h2>
-          <p>Bespoke applications designed to unlock your library, from Exif data to dynamic slideshows.</p>
+          <p>Bespoke applications designed to unlock your library. We are currently building:</p>
+          
+          {/* NEW: Explicit App List for OAuth Compliance */}
+          <ul className="homepage-app-list">
+            <li><strong>EXIF Viewer</strong> – Metadata analysis.</li>
+            <li><strong>Media Uploader</strong> – Bulk library management.</li>
+            <li><strong>Slideshow App</strong> – Ambient photo displays.</li>
+          </ul>
+
           <Link to="/photos-apps" className="cta-button">Browse Apps</Link>
         </section>
 
@@ -74,7 +82,7 @@ function Homepage() {
         </section>
         
         {/* Contact section remains the same */}
-        <section className="section contact-section">
+      <section className="section contact-section centered-section">
            <h2>Let's Connect</h2>
            <p>Have an idea or a project in mind? We'd love to hear from you.</p>
            <a href="mailto:ladevzo-contact@googlegroups.com" className="contact-link">Get in Touch</a>

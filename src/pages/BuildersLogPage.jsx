@@ -19,7 +19,7 @@ const BLOG_POSTS = [
     title: 'Episode 2: The Gmail Shuffle',
     excerpt: 'Support asked for $50 to unlock my account. I asked myself: "Can I just create a new Gmail instead?" Documenting the workaround and the messy reality of the Free Tier.',
     status: 'Coming soon', // <--- CHANGED
-    link: null // <--- CHANGED
+    link: '/blog/gmail-shuffle' // <--- CHANGED
   },
   {
      id: 'upcoming',

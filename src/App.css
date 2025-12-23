@@ -241,3 +241,82 @@
   color: #666; /* or rgba(255,255,255,0.3) */
   margin: 0 10px;
 }
+
+/* Homepage App List (For OAuth Compliance) */
+.homepage-app-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+  text-align: left; /* Or center, depending on preference */
+}
+
+.homepage-app-list li {
+  margin-bottom: 8px;
+  color: #e0e0e0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.homepage-app-list li::before {
+  content: "▹"; /* A nice arrow bullet */
+  color: #4DB6AC; /* Your Teal accent color */
+  position: absolute;
+  left: 0;
+}
+
+/* Centered Section (For Contact) */
+.centered-section {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the contact link stands out in the center */
+.contact-section .contact-link {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.contact-section {
+  grid-column: 1 / -1; /* Span all grid columns */
+  width: 100%;
+  max-width: 600px;    /* Keep it card-sized, don't stretch too wide */
+  margin: 40px auto 0; /* Top margin for spacing, Auto for centering */
+  justify-self: center; /* Grid alignment */
+}
+
+/* --- New Layouts for Apps Page --- */
+
+/* Force a 3-column layout for the apps */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Strict 3 columns */
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 80px; /* Space before the Ideas section */
+}
+
+/* Responsive: Stack them if screen is too small */
+@media (max-width: 1024px) {
+  .apps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Ideas Section Styling */
+.ideas-section-container {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 60px;
+}
+
+.section-divider-title {
+  color: #c0c0c0;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
