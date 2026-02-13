@@ -149,21 +149,22 @@
 }
 
 .blog-title {
-  font-size: 3.5rem; /* Slightly smaller than the huge 4rem */
-  font-weight: 800;
-  line-height: 1.1;
+  font-size: 3.8rem;      /* Increased from 3.5rem */
+  font-weight: 900;      /* Heavier weight for more punch */
+  line-height: 1.05;     /* Tighter line height for large text */
   background: linear-gradient(45deg, #FF69B4, #8A2BE2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem; /* More space between title and subtitle */
 }
 
 .blog-subtitle {
-  color: #888;
-  font-size: 1.2rem;
-  font-weight: 600;
+  color: #777;           /* Slightly darker/more muted grey */
+  font-size: 1rem;       /* Reduced from 1.2rem */
+  font-weight: 500;      /* Reduced weight */
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;   /* Increased spacing for a "designer" look */
+  opacity: 0.7;          /* Pushes it further into the background */
 }
 
 /* Typography & Spacing */
@@ -192,6 +193,18 @@
 .blog-content li {
   margin-bottom: 0.8rem;
   color: #e0e0e0;
+}
+
+/* Fix the awkward numbered lists to match the bullet points */
+.blog-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem; /* Matches your .blog-content ul indent */
+}
+
+Optional: Make the numbers a specific color to pop against the dark background
+.blog-content ol li::marker {
+  color: #2196F3; /* Matches your Building Blue */
+  font-weight: bold;
 }
 
 /* Image Styling */
@@ -319,4 +332,24 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 300;
+}
+
+/* Blockquote Styling */
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  background-color: rgba(33, 150, 243, 0.05); /* Very subtle blue tint */
+  border-left: 4px solid #2196F3; /* Using the new Building Blue */
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  line-height: 1.6;
+  color: #e0e0e0; /* Slightly lighter text for readability */
+}
+
+/* Optional: Style the "Sidenote:" label if you use it inside quotes */
+blockquote strong {
+  color: #2196F3;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
 }

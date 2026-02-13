@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Routes, Route, Outlet } from 'react-router-dom'; // Import Outlet
+import { Link, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './animations.css';
-import './pages.css'; // Make sure pages.css is imported here
-import usePageTracking from './hooks/usePageTracking';
-import { useLocation } from 'react-router-dom'; // We need this to know the current URL
+import './pages.css';
 
 // Page Components
 import GooglePhotosAppsPage from './pages/GooglePhotosAppsPage.jsx';
-import BuildersLogPage from './pages/BuildersLogPage.jsx';
+import ScrappyPathPage from './pages/ScrappyPathPage.jsx'; // Renamed import for internal clarity
 import HundredIdeasPage from './pages/HundredIdeasPage.jsx';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';     // NEW: Import Privacy Policy
-import TermsOfServicePage from './pages/TermsOfServicePage.jsx'; // NEW: Import Terms of Service
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';
+import TermsOfServicePage from './pages/TermsOfServicePage.jsx';
 
-//Blog
-import Post01_GettingStuck from './blog/Post01_GettingStuck';
-import Post02_GmailShuffle from './blog/Post02_GmailShuffle';
+// Blog
+import StaticSitePost from './blog/StaticSitePost.jsx';
+import BuildPersonalSitePost from './blog/BuildPersonalSitePost.jsx';
+
 
 // Layout Component
-import PageLayout from './components/PageLayout.jsx'; // NEW: Import the layout
+import PageLayout from './components/PageLayout.jsx';
 
-// This is the component for the homepage content
 function Homepage() {
-  // Track the homepage explicitly
-  usePageTracking('homepage');
-  
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,13 +36,12 @@ function Homepage() {
         <h1 className="ladevzo-title">LADEVZO</h1>
         <p className="tagline">
           The home of <span className="highlight">Google Photos Apps</span> & <br />
-          <span className="highlight">Zero-to-AI</span> Cloud Engineering.
+          <span className="highlight">The Scrappy Path</span> blog on building and AI.
         </p>
         
-        {/* NAV FIX: We will add CSS to make these stack on mobile */}
         <nav className="hero-nav">
           <Link to="/photos-apps" className="cta-button">Use the Apps</Link>
-          <Link to="/builders-log" className="cta-button">Read the Builder's Log</Link>
+          <Link to="/scrappy-path" className="cta-button">The Scrappy Path</Link>
         </nav>
         
         <div className="scroll-indicator">
@@ -56,35 +50,24 @@ function Homepage() {
         </div>
       </header>
 
-      {/* ... keeping the rest of the sections, just updating the titles ... */}
       <main className="content-sections">
         <section className="section">
           <h2>Google Photos Tools</h2>
-          <p>Bespoke applications designed to unlock your library. We are currently building:</p>
-          
-          {/* NEW: Explicit App List for OAuth Compliance */}
-          <ul className="homepage-app-list">
-            <li><strong>EXIF Viewer</strong> – Metadata analysis.</li>
-            <li><strong>Media Uploader</strong> – Bulk library management.</li>
-            <li><strong>Slideshow App</strong> – Ambient photo displays.</li>
-          </ul>
-
+          <p>Bespoke applications designed to unlock your library.</p>
           <Link to="/photos-apps" className="cta-button">Browse Apps</Link>
         </section>
 
         <section className="section">
-          <h2>Zero to AI</h2>
+          <h2>The Scrappy Path</h2>
           <p>
-            A chronicle of building intelligent systems without breaking the bank. 
+            Building intelligent systems without breaking the bank. 
             Follow the journey of leveraging Google Cloud's free tier.
           </p>
-          <Link to="/builders-log" className="cta-button">Start Reading</Link>
+          <Link to="/scrappy-path" className="cta-button">Start Reading</Link>
         </section>
         
-        {/* Contact section remains the same */}
-      <section className="section contact-section centered-section">
+        <section className="section contact-section centered-section">
            <h2>Let's Connect</h2>
-           <p>Have an idea or a project in mind? We'd love to hear from you.</p>
            <a href="mailto:ladevzo-contact@googlegroups.com" className="contact-link">Get in Touch</a>
         </section>
       </main>
@@ -92,41 +75,33 @@ function Homepage() {
   );
 }
 
-
 function App() {
   return (
     <div className="app-container">
-      {/* Routes now define the page content */}
       <Routes>
-        {/* Homepage Route */}
         <Route path="/" element={<Homepage />} />
-
-        {/* NEW: Group all other pages under the PageLayout.
-          This layout will render the sub-nav and the correct page.
-        */}
         <Route element={<PageLayout />}>
           <Route path="/photos-apps" element={<GooglePhotosAppsPage />} />
-          <Route path="/builders-log" element={<BuildersLogPage />} />
+          <Route path="/scrappy-path" element={<ScrappyPathPage />} />
           <Route path="/100-ideas" element={<HundredIdeasPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-          <Route path="/blog/getting-stuck" element={<Post01_GettingStuck />} />
-          <Route path="/blog/gmail-shuffle" element={<Post02_GmailShuffle />} />
+          <Route path="/scrappy-path/static-site-post" element={<StaticSitePost />} />
+          <Route path="/scrappy-path/build-your-site" element={<BuildPersonalSitePost />} />
         </Route>
       </Routes>
 
-      {/* UPDATED: This footer remains consistent across all pages.
-        I've added the links you requested.
-      */}
       <footer className="footer">
         <div className="footer-links">
-          <Link to="/privacy-policy" className="contact-link">Privacy Policy</Link>
+          <Link to="/privacy-policy" className="contact-link">Privacy</Link>
           <span>|</span>
-          <Link to="/terms-of-service" className="contact-link">Terms of Service</Link>
+          <Link to="/terms-of-service" className="contact-link">Terms</Link>
           <span>|</span>
-          <a href="mailto:ladevzo-contact@googlegroups.com" className="contact-link">Contact Us</a>
+          <Link to="/scrappy-path" className="contact-link">Blog</Link>
+          <span>|</span>
+          <a href="mailto:ladevzo-contact@googlegroups.com" className="contact-link">Contact</a>
         </div>
-        <p>&copy; {new Date().getFullYear()} Ladevzo. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Ladevzo.</p>
       </footer>
     </div>
   );
